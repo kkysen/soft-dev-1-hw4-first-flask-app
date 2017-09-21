@@ -35,9 +35,6 @@ def index():
     return reflect_url('http://www.stuycs.org/courses/software-development/mykolyk-1')
 
 
-index = app.route('/')(index)
-
-
 def generate_route(i):
     # type: (int) -> None
     i = str(i)
