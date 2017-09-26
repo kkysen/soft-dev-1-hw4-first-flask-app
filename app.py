@@ -12,6 +12,7 @@ __date__ = '2017-09-22'
 
 from flask import Flask
 from flask import request
+from flask import render_template
 from urllib2 import urlopen
 
 app = Flask(__name__)
@@ -63,6 +64,16 @@ def generate_routes(start, stop):
     # type: () -> None
     for i in xrange(start, stop):
         generate_route(i)
+
+
+@app.route('/template')
+def make_template():
+    # type: () -> str
+    title = "Model Template"
+    nums = [1, 1, 2, 3, 5, 8]
+    for i in xrange(10):
+        nums *= 2
+    return render_template('template.jinja2', title=title, nums=nums)
 
 
 if __name__ == '__main__':
